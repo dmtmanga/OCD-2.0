@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Grass1
+  - Obstacle
+  - Sword
+  - Grass2
+  - Trimmed1
+  - Fertilizer1
+  - Fertilizer2
+  - OuterWall
+  - Trimmed2
+  - Fertilizer
+  - Trimmed
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Text
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2738859755
+    locked: 0
+  - name: Foreground
+    uniqueID: 4154089765
+    locked: 0
+  - name: Players
+    uniqueID: 1652714441
+    locked: 0
+  - name: Pickup
+    uniqueID: 1432452565
+    locked: 0
+  - name: UI
+    uniqueID: 3549046269
+    locked: 0
