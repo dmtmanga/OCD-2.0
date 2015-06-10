@@ -55,7 +55,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grownPrefab: {fileID: 104900, guid: c419e276b824f644c978409251e15eec, type: 2}
-  growTime: 60
+  growTime: 75
+  growTimeVariance: 20
   fertilizeGrowTime: 1
 --- !u!212 &21282958
 SpriteRenderer:
@@ -89,7 +90,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: growTimeVariance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: growTime
+      value: 75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196556}
