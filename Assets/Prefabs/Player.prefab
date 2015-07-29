@@ -35,6 +35,7 @@ Transform:
   m_RootOrder: 0
 --- !u!50 &5066048
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -43,11 +44,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &5873874
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -90,6 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 0}
+  myFertilizer: {fileID: 0}
+  fertPrefab: {fileID: 199916, guid: 2ab467a7c82e4c14094a4172a353f408, type: 2}
   attackCooldown: .150000006
   x: 
   a: 
@@ -152,7 +155,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: fertPrefab
+      value: 
+      objectReference: {fileID: 199916, guid: 2ab467a7c82e4c14094a4172a353f408, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 145942}

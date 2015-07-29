@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grass1
-  - Obstacle
+  - House
   - Sword
   - Grass2
   - Trimmed1
@@ -15,6 +15,7 @@ TagManager:
   - Trimmed2
   - Fertilizer
   - Trimmed
+  - Fence
   layers:
   - Default
   - TransparentFX

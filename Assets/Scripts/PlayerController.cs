@@ -5,6 +5,8 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	
 	public GameObject sword;
+	public GameObject myFertilizer;
+	public GameObject fertPrefab;
 	public float attackCooldown;
 	public string x;
 	public string a;
@@ -32,8 +34,6 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		
 		Attack ();
 		
 		if (Mathf.Abs(r.velocity.x) > Mathf.Abs(r.velocity.y)) {
@@ -86,12 +86,14 @@ public class PlayerController : MonoBehaviour {
 			}
 		} 
 		_animator.SetFloat ("speed", r.velocity.magnitude);
-	
 	}
+
 
 	void FootSteps() {
 		AudioSource.PlayClipAtPoint(grassfootclips[Random.Range (0 ,grassfootclips.Length)], r.position);
 	}
+
+
 	void Flip(){
 		_facingLeft = !_facingLeft;
 
@@ -99,6 +101,8 @@ public class PlayerController : MonoBehaviour {
 		scale.x *= -1;
 		transform.localScale = scale;
 	}
+
+
 	void Attack(){
 		if (!attacking) {
 			if (Input.GetButtonDown (a) || Input.GetButtonDown (x)) {
@@ -116,29 +120,42 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 	}
-	
+
+
+	void OnCollisionEnter2D( Collision2D collision) {
+		if (collision.collider.tag == "Fence")
+			ThrowFert ();
+	}
+
+
 	public bool isAttacking(){
 		return attacking;
 	}
+
 
 	public bool isCarrying(){
 		return _carryingFert;
 	}
 
+
 	public void PickupFert() {
 		_carryingFert = true;
+		myFertilizer.SetActive(true);
 	}
 
+	
 	public void ThrowFert() {
-		_carryingFert = false;
-		AudioSource.PlayClipAtPoint(throwclips[Random.Range (0 ,throwclips.Length)], r.position);
-		AerialFertilizer fert = GetComponentInChildren<AerialFertilizer> ();
-		if(fert != null) 
-		{
-			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraStuff>().ScreenShake();
-			fert.Fly ();
-		}
+		GameObject thrownFert;
 
+		_carryingFert = false;
+		thrownFert = (GameObject) Instantiate(fertPrefab, transform.position, new Quaternion());
+		if (gameObject.name == "P1")
+			thrownFert.tag = "Fertilizer1";
+		else if (gameObject.name == "P2")
+			thrownFert.tag = "Fertilizer2";
+		else
+			System.Console.WriteLine ("Cannot determine which playwer is throwing fertilizer!!!");
+		AudioSource.PlayClipAtPoint(throwclips[Random.Range (0 ,throwclips.Length)], r.position);
 	}
 	
 }
