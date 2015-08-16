@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 
 public class PlayerController : MonoBehaviour {
@@ -10,9 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public float attackCooldown;
 	public string x;
 	public string a;
-	public AudioClip[] swingClips;
-	public AudioClip[] grassfootclips;
-	public AudioClip[] throwclips;
+	private Dictionary<string, SoundBank> _soundbanks;
 
 	private Rigidbody2D r;
 	private bool attacking = false;
@@ -22,7 +21,14 @@ public class PlayerController : MonoBehaviour {
 	private bool _carryingFert;
 	
 	// Use this for initialization
-	void Start () {
+	public void Start () {
+		_soundbanks = new Dictionary<string, SoundBank> ();
+		SoundBank[] soundbanks = GetComponents<SoundBank> ();
+
+		foreach(SoundBank soundbank in soundbanks)
+		{
+			_soundbanks.Add (soundbank.sample, soundbank);
+		}
 		_facingLeft = true;
 		_carryingFert = false;
 		_animator = GetComponent<Animator> ();
@@ -89,8 +95,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 
-	void FootSteps() {
-		AudioSource.PlayClipAtPoint(grassfootclips[Random.Range (0 ,grassfootclips.Length)], r.position);
+	private void FootSteps() {
+		_soundbanks ["grassstep"].Stop ();
+		_soundbanks["grassstep"].Play();
 	}
 
 
@@ -109,7 +116,7 @@ public class PlayerController : MonoBehaviour {
 				attacking = true;
 				sword.SetActive(true);
 				r.velocity = new Vector3();
-				AudioSource.PlayClipAtPoint(swingClips[Random.Range (0 ,swingClips.Length)], r.position);
+				_soundbanks["swing"].Play();
 			}
 		}else {
 			attackTime -= Time.deltaTime;
@@ -155,7 +162,7 @@ public class PlayerController : MonoBehaviour {
 			thrownFert.tag = "Fertilizer2";
 		else
 			System.Console.WriteLine ("Cannot determine which playwer is throwing fertilizer!!!");
-		AudioSource.PlayClipAtPoint(throwclips[Random.Range (0 ,throwclips.Length)], r.position);
+		_soundbanks ["throw"].Play ();
 	}
 	
 }

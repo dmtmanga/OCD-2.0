@@ -12,6 +12,7 @@ GameObject:
   - 61: {fileID: 6105338}
   - 114: {fileID: 11467422}
   - 82: {fileID: 8239212}
+  - 114: {fileID: 11482036}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -54,7 +55,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -66,7 +67,7 @@ AudioSource:
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 0
+  BypassListenerEffects: 1
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
@@ -126,12 +127,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trimmedGrassPrefab: {fileID: 196556, guid: 359b02e544a8a324c9a0d3bb8e97319d, type: 2}
   grassBladesPrefab: {fileID: 110338, guid: f4535827105ae8d48b081ea25a9b0e7d, type: 2}
-  cutClips:
+--- !u!114 &11482036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be969322e38998b419d8e8a840fb2600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sample: cut
+  soundClips:
   - {fileID: 8300000, guid: f1bbbb17c30c91a4bab675ddddf7d918, type: 3}
   - {fileID: 8300000, guid: 639ed7d74963b7c4590f4971708f25d5, type: 3}
-  - {fileID: 8300000, guid: a3972a874d5de0b42a9daa14fec11754, type: 3}
-  - {fileID: 8300000, guid: 5ff9624ed4336754da0e2a452825d638, type: 3}
-  - {fileID: 8300000, guid: ebeb1518399c9f649b2d4b87a0fee687, type: 3}
 --- !u!212 &21228178
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -164,7 +174,31 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: soundClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sample
+      value: cut
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: soundClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f1bbbb17c30c91a4bab675ddddf7d918, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 639ed7d74963b7c4590f4971708f25d5, type: 3}
+    - target: {fileID: 0}
+      propertyPath: BypassListenerEffects
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 104900}
