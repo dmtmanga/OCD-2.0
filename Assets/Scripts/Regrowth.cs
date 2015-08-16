@@ -8,29 +8,29 @@ public class Regrowth : MonoBehaviour {
 	public float growTimeVariance;
 	public float fertilizeGrowTime;
 
-	private GameObject GM;
-	private float timeUntilGrown;
+	private GameObject _GM;
+	private float _timeUntilGrown;
 
 	// Use this for initialization
 	void Start () {
-		GM = GameObject.FindGameObjectWithTag("GameController");
-		timeUntilGrown = growTime + Random.Range(-1 * growTimeVariance, growTimeVariance);
+		_GM = GameObject.FindGameObjectWithTag("GameController");
+		_timeUntilGrown = growTime + Random.Range(-1 * growTimeVariance, growTimeVariance);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (GM.GetComponent<PlayerWin>().GameOver())
+		if (_GM.GetComponent<PlayerWin>().GameOver())
 			return;
 
-		timeUntilGrown -= Time.deltaTime;
-		if (timeUntilGrown <= 0) {
+		_timeUntilGrown -= Time.deltaTime;
+		if (_timeUntilGrown <= 0) {
 			Grow();
 		}
 	}
 
 	void OnTriggerEnter2D( Collider2D collider) {
 		if( (collider.tag == "Fertilizer1" && tag == "Trimmed2") || (collider.tag == "Fertilizer2" && tag == "Trimmed1") ){
-			timeUntilGrown = fertilizeGrowTime;
+			_timeUntilGrown = fertilizeGrowTime;
 		}
 	}
 

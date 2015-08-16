@@ -11,10 +11,10 @@ public class FertilizerController : MonoBehaviour {
 	void Start () {
 		_moveVector = new Vector3();
 		if (tag == "Fertilizer1") {
-			_moveVector.x = speed;
+			_moveVector.x = 0.1f * speed;
 		} 
 		else if (tag == "Fertilizer2") {
-			_moveVector.x = -1 * speed;
+			_moveVector.x = -0.1f * speed;
 		}
 	}
 

@@ -151,14 +151,24 @@ public class PlayerController : MonoBehaviour {
 	public void ThrowFert() {
 		GameObject thrownFert;
 
+		// Check if carrying fertilizer
+		if (!_carryingFert)
+			return;
+
+		// No longer carrying fertilizer if thrown
 		_carryingFert = false;
+		myFertilizer.SetActive (false);
 		thrownFert = (GameObject) Instantiate(fertPrefab, transform.position, new Quaternion());
+
+		// Make sure the fertilizer object is tagged properly
 		if (gameObject.name == "P1")
 			thrownFert.tag = "Fertilizer1";
 		else if (gameObject.name == "P2")
 			thrownFert.tag = "Fertilizer2";
 		else
 			System.Console.WriteLine ("Cannot determine which playwer is throwing fertilizer!!!");
+
+		// audio
 		_soundbanks ["throw"].Play ();
 	}
 	
