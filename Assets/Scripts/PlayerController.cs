@@ -8,8 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject myFertilizer;
 	public GameObject fertPrefab;
 	public float attackCooldown;
-	public string x;
-	public string a;
+	public string attackButton;
 	public AudioClip[] swingClips;
 	public AudioClip[] grassfootclips;
 	public AudioClip[] throwclips;
@@ -105,7 +104,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Attack(){
 		if (!_isAttacking) {
-			if (Input.GetButtonDown (a) || Input.GetButtonDown (x)) {
+			if (Input.GetButtonDown (attackButton) ) {
 				_isAttacking = true;
 				sword.SetActive(true);
 				_r.velocity = new Vector3();

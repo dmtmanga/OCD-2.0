@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		if (_GM.GetComponent<PlayerWin> ().GameOver ()) {
 			_moveVector.x = 0;
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour {
 			return;
 		}
 
-		if (! GetComponent<PlayerController> ().isAttacking ()) {
+		if (!GetComponent<PlayerController> ().isAttacking () ){
 			_moveVector.x = Input.GetAxis (_x) * speed;
 			_moveVector.y = Input.GetAxis (_y) * speed * -1;
 			_moveVector.z = 0f;
