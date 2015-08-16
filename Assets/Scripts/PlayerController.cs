@@ -9,13 +9,11 @@ public class PlayerController : MonoBehaviour {
 	public GameObject myFertilizer;
 	public GameObject fertPrefab;
 	public float attackCooldown;
-	public string x;
-	public string a;
 	private Dictionary<string, SoundBank> _soundbanks;
-
-	private Rigidbody2D r;
-	private bool attacking = false;
-	private float attackTime;
+	public string attackButton;
+	private Rigidbody2D _r;
+	private bool _isAttacking = false;
+	private float _attackTime;
 	private Animator _animator;
 	private bool _facingLeft;
 	private bool _carryingFert;
@@ -32,8 +30,8 @@ public class PlayerController : MonoBehaviour {
 		_facingLeft = true;
 		_carryingFert = false;
 		_animator = GetComponent<Animator> ();
-		attackTime = attackCooldown;
-		r = GetComponent<Rigidbody2D> ();
+		_attackTime = attackCooldown;
+		_r = GetComponent<Rigidbody2D> ();
 		sword.transform.position = new Vector3 (sword.transform.parent.transform.position.x, 
 		                                        sword.transform.parent.transform.position.y - 0.32f);
 	}
@@ -42,8 +40,8 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		Attack ();
 		
-		if (Mathf.Abs(r.velocity.x) > Mathf.Abs(r.velocity.y)) {
-			if( r.velocity.x > 0)
+		if (Mathf.Abs(_r.velocity.x) > Mathf.Abs(_r.velocity.y)) {
+			if( _r.velocity.x > 0)
 			{
 				sword.transform.position = new Vector3 (sword.transform.parent.transform.position.x + 0.32f, sword.transform.parent.transform.position.y);
 				_animator.SetBool ("right", true);
@@ -56,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 					Flip ();
 				}
 			}
-			else if (r.velocity.x < 0)
+			else if (_r.velocity.x < 0)
 			{
 				sword.transform.position = new Vector3 (sword.transform.parent.transform.position.x - 0.32f, 
 				                                        sword.transform.parent.transform.position.y);
@@ -70,8 +68,8 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
-		else if (Mathf.Abs(r.velocity.x) < Mathf.Abs(r.velocity.y)) {
-			if( r.velocity.y > 0)
+		else if (Mathf.Abs(_r.velocity.x) < Mathf.Abs(_r.velocity.y)) {
+			if( _r.velocity.y > 0)
 			{
 				sword.transform.position = new Vector3 (sword.transform.parent.transform.position.x, 
 				                                        sword.transform.parent.transform.position.y + 0.32f);
@@ -81,7 +79,7 @@ public class PlayerController : MonoBehaviour {
 				_animator.SetBool ("right", false);
 
 			}
-			else if (r.velocity.y < 0)
+			else if (_r.velocity.y < 0)
 			{
 				sword.transform.position = new Vector3 (sword.transform.parent.transform.position.x, 
 				                                        sword.transform.parent.transform.position.y - 0.32f);
@@ -91,9 +89,8 @@ public class PlayerController : MonoBehaviour {
 				_animator.SetBool ("right", false);
 			}
 		} 
-		_animator.SetFloat ("speed", r.velocity.magnitude);
+		_animator.SetFloat ("speed", _r.velocity.magnitude);
 	}
-
 
 	private void FootSteps() {
 		_soundbanks ["grassstep"].Stop ();
@@ -111,18 +108,18 @@ public class PlayerController : MonoBehaviour {
 
 
 	void Attack(){
-		if (!attacking) {
-			if (Input.GetButtonDown (a) || Input.GetButtonDown (x)) {
-				attacking = true;
+		if (!_isAttacking) {
+			if (Input.GetButtonDown (attackButton) ) {
+				_isAttacking = true;
 				sword.SetActive(true);
-				r.velocity = new Vector3();
+				_r.velocity = new Vector3();
 				_soundbanks["swing"].Play();
 			}
 		}else {
-			attackTime -= Time.deltaTime;
-			if (attackTime <= 0) {
-				attackTime = attackCooldown;
-				attacking = false;
+			_attackTime -= Time.deltaTime;
+			if (_attackTime <= 0) {
+				_attackTime = attackCooldown;
+				_isAttacking = false;
 				sword.SetActive(false);
 			}
 		}
@@ -136,7 +133,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	public bool isAttacking(){
-		return attacking;
+		return _isAttacking;
 	}
 
 

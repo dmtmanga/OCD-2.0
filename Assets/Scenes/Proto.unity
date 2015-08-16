@@ -259,6 +259,10 @@ Prefab:
       propertyPath: myFertilizer
       value: 
       objectReference: {fileID: 22947190}
+    - target: {fileID: 11404786, guid: d2c0c7449a62f6f48978e7f15ec456f8, type: 2}
+      propertyPath: attackButton
+      value: Attack2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2c0c7449a62f6f48978e7f15ec456f8, type: 2}
   m_IsPrefabParent: 0
@@ -607,6 +611,10 @@ Prefab:
       propertyPath: m_Name
       value: Fertilizer Spawn 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11492192, guid: 0fb5f51cd1ecc2f4f936e0f56629a5ca, type: 2}
+      propertyPath: myFertilizer
+      value: 
+      objectReference: {fileID: 1195266224}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fb5f51cd1ecc2f4f936e0f56629a5ca, type: 2}
   m_IsPrefabParent: 0
@@ -1528,6 +1536,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 161768, guid: b356e21400cf4094eb5ae0ce1d84bc1a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b356e21400cf4094eb5ae0ce1d84bc1a, type: 2}
   m_IsPrefabParent: 0
@@ -1681,6 +1693,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 178f417afbf8b85429745fa5b170c76e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1195266224 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 161768, guid: b356e21400cf4094eb5ae0ce1d84bc1a, type: 2}
+  m_PrefabInternal: {fileID: 1046703277}
 --- !u!4 &1210478865 stripped
 Transform:
   m_PrefabParentObject: {fileID: 415476, guid: 178f417afbf8b85429745fa5b170c76e, type: 2}
@@ -1942,6 +1958,10 @@ Prefab:
       propertyPath: m_Name
       value: Fertilizer Spawn 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11492192, guid: 0fb5f51cd1ecc2f4f936e0f56629a5ca, type: 2}
+      propertyPath: myFertilizer
+      value: 
+      objectReference: {fileID: 1621181143}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fb5f51cd1ecc2f4f936e0f56629a5ca, type: 2}
   m_IsPrefabParent: 0
@@ -2096,6 +2116,10 @@ Prefab:
       propertyPath: myFertilizer
       value: 
       objectReference: {fileID: 1137527808}
+    - target: {fileID: 11404786, guid: d2c0c7449a62f6f48978e7f15ec456f8, type: 2}
+      propertyPath: attackButton
+      value: Attack1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: d2c0c7449a62f6f48978e7f15ec456f8, type: 2}
@@ -2112,6 +2136,10 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 415476, guid: 178f417afbf8b85429745fa5b170c76e, type: 2}
   m_PrefabInternal: {fileID: 898261954}
+--- !u!1 &1621181143 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 161768, guid: b356e21400cf4094eb5ae0ce1d84bc1a, type: 2}
+  m_PrefabInternal: {fileID: 1267944633}
 --- !u!4 &1862509094 stripped
 Transform:
   m_PrefabParentObject: {fileID: 415476, guid: 178f417afbf8b85429745fa5b170c76e, type: 2}

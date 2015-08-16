@@ -5,23 +5,23 @@ public class FertilizerController : MonoBehaviour {
 
 	public float speed;
 	
-	private Vector3 moveVector;
+	private Vector3 _moveVector;
 	
 	// Use this for initialization
 	void Start () {
-		moveVector = new Vector3();
+		_moveVector = new Vector3();
 		if (tag == "Fertilizer1") {
-			moveVector.x = speed;
+			_moveVector.x = speed;
 		} 
 		else if (tag == "Fertilizer2") {
-			moveVector.x = -1 * speed;
+			_moveVector.x = -1 * speed;
 		}
 	}
 
 
 	// Update is called once per frame
 	void Update () {
-		transform.Translate (moveVector);
+		transform.Translate (_moveVector);
 	}
 
 	
