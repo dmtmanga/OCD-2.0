@@ -48,18 +48,18 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110338}
-  lengthInSec: 1
+  lengthInSec: .200000003
   startDelay: 0
   speed: 1
   randomSeed: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 0
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .5
+      scalar: .159999996
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -276,7 +276,7 @@ ParticleSystem:
       minMaxState: 3
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 1076
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -339,7 +339,7 @@ ParticleSystem:
   SizeModule:
     enabled: 1
     curve:
-      scalar: 1.29999995
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -354,7 +354,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0
+          value: .5
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -387,7 +387,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 3
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       maxGradient:
         key0:
@@ -526,12 +526,12 @@ ParticleSystem:
   VelocityModule:
     enabled: 1
     x:
-      scalar: 2.5
+      scalar: 3.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: -1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -549,12 +549,12 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 3
     y:
-      scalar: 2.5
+      scalar: 3.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: -1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1077,7 +1077,63 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: .159999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lengthInSec
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SizeModule.curve.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SizeModule.curve.minCurve.m_Curve.Array.data[0].value
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ExternalForcesModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1076
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: VelocityModule.x.scalar
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: VelocityModule.x.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: VelocityModule.y.scalar
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: VelocityModule.y.minCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: VelocityModule.y.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 110338}
