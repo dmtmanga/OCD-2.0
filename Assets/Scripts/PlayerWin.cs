@@ -64,7 +64,7 @@ public class PlayerWin : MonoBehaviour {
 	
 	void EndGame( string winner ){
 		gameEnd = true;
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraStuff>().ScreenShake();
+		GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraEffects>().ScreenShake(2f, 0.4f);
 		//Time.timeScale = 0;
 		if (winner == "P1") {
 			winMessage.rectTransform.anchoredPosition = new Vector2(-200, -175);

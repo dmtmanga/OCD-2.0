@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraStuff : MonoBehaviour {
+public class CameraEffects : MonoBehaviour {
 
 	private Vector3 _initial;
 	private float _time;
@@ -10,13 +10,12 @@ public class CameraStuff : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_initial = transform.position;
-		ScreenShake ();
 	}
 
-	public void ScreenShake()
+	public void ScreenShake(float time, float magnitude)
 	{
-		_time = 2;
-		_magnitude = 0.4f;
+		_time = time;
+		_magnitude = magnitude;
 	}
 
 	// Update is called once per frame
